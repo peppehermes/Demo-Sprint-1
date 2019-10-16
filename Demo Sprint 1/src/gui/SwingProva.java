@@ -67,7 +67,7 @@ public class SwingProva {
 		
 		JButton btnPackage = new JButton("Package");
 		
-		JTextArea txtrClickOnA = new JTextArea("Click on a button to receive a ticketo!");
+		JTextArea txtrClickOnA = new JTextArea("Click on a button to receive a ticketos!");
 		txtrClickOnA.setFont(new Font("Chiller", Font.PLAIN, 20));
 		txtrClickOnA.setEditable(false);
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
