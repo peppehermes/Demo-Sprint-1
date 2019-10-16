@@ -67,16 +67,16 @@ public class SwingProva {
 		
 		JButton btnPackage = new JButton("Package");
 		
-		JTextArea textArea = new JTextArea("Click on a button to receive a ticket!");
-		textArea.setFont(new Font("Chiller", Font.PLAIN, 20));
-		textArea.setEditable(false);
+		JTextArea txtrClickOnA = new JTextArea("Click on a button to receive a ticketo!");
+		txtrClickOnA.setFont(new Font("Chiller", Font.PLAIN, 20));
+		txtrClickOnA.setEditable(false);
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(textArea, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+						.addComponent(txtrClickOnA, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(btnAccount)
 							.addPreferredGap(ComponentPlacement.RELATED, 282, Short.MAX_VALUE)
@@ -87,8 +87,8 @@ public class SwingProva {
 			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(textArea, GroupLayout.PREFERRED_SIZE, 186, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
+					.addComponent(txtrClickOnA, GroupLayout.PREFERRED_SIZE, 191, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(btnPackage, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
 						.addComponent(btnAccount, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
