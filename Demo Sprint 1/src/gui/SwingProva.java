@@ -3,28 +3,10 @@ package gui;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import java.awt.BorderLayout;
-import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
-import javax.swing.JPanel;
-import java.awt.FlowLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import javax.swing.BoxLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.CardLayout;
-import javax.swing.SpringLayout;
-import net.miginfocom.swing.MigLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.JSeparator;
-import com.jgoodies.forms.layout.FormSpecs;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
 
@@ -68,7 +50,7 @@ public class SwingProva {
 		JButton btnPackage = new JButton("Package");
 		
 		JTextArea textArea = new JTextArea("Click on a button to receive a ticket!");
-		textArea.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+		textArea.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		textArea.setEditable(false);
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
