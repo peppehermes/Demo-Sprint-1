@@ -77,9 +77,9 @@ public class SwingProva {
     t.setNumber(AccountTicketList.size());
     
     AccountTicketList.add(t);
-    txtrClickOnA.setText("Here's your ticket!");
-
-    txtrClickOnA.append(t.getLabel() + Integer.toString(t.getNumber()) +"  "+ dateFormat.format(t.getDate()));
+    txtrClickOnA.setText("Here's your ticket!" + "\n\n");
+    txtrClickOnA.append(t.getLabel() + Integer.toString(t.getNumber()) + "\n\n" + dateFormat.format(t.getDate()) );
+    
     
    }
   });
@@ -97,35 +97,35 @@ public class SwingProva {
     t.setNumber(PackageTicketList.size());
     
     PackageTicketList.add(t);
-    txtrClickOnA.setText("Here's your ticket!");
-    
-    txtrClickOnA.append(t.getLabel() + Integer.toString(t.getNumber()) +"  "+ dateFormat.format(t.getDate()));
+    txtrClickOnA.setText("Here's your ticket!" + "\n\n");
+    txtrClickOnA.append(t.getLabel() + Integer.toString(t.getNumber()) + "\n\n" + dateFormat.format(t.getDate()) );
     
    }
   });
   GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
   groupLayout.setHorizontalGroup(
-   groupLayout.createParallelGroup(Alignment.TRAILING)
-    .addGroup(groupLayout.createSequentialGroup()
-     .addContainerGap()
-     .addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-      .addComponent(txtrClickOnA, GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
-      .addGroup(groupLayout.createSequentialGroup()
-       .addComponent(btnAccount)
-       .addPreferredGap(ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
-       .addComponent(btnPackage)))
-     .addContainerGap())
+  	groupLayout.createParallelGroup(Alignment.TRAILING)
+  		.addGroup(groupLayout.createSequentialGroup()
+  			.addContainerGap()
+  			.addComponent(btnAccount)
+  			.addPreferredGap(ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+  			.addComponent(btnPackage)
+  			.addContainerGap())
+  		.addGroup(groupLayout.createSequentialGroup()
+  			.addGap(44)
+  			.addComponent(txtrClickOnA, GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+  			.addGap(42))
   );
   groupLayout.setVerticalGroup(
-   groupLayout.createParallelGroup(Alignment.LEADING)
-    .addGroup(groupLayout.createSequentialGroup()
-     .addContainerGap()
-     .addComponent(txtrClickOnA, GroupLayout.PREFERRED_SIZE, 191, GroupLayout.PREFERRED_SIZE)
-     .addGap(35)
-     .addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-      .addComponent(btnAccount)
-      .addComponent(btnPackage))
-     .addContainerGap(35, Short.MAX_VALUE))
+  	groupLayout.createParallelGroup(Alignment.LEADING)
+  		.addGroup(groupLayout.createSequentialGroup()
+  			.addContainerGap()
+  			.addComponent(txtrClickOnA, GroupLayout.PREFERRED_SIZE, 191, GroupLayout.PREFERRED_SIZE)
+  			.addGap(54)
+  			.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+  				.addComponent(btnAccount)
+  				.addComponent(btnPackage))
+  			.addContainerGap(32, Short.MAX_VALUE))
   );
   frame.getContentPane().setLayout(groupLayout);
  }
