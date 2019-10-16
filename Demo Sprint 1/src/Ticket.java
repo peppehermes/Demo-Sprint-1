@@ -5,7 +5,7 @@ public class Ticket {
 	private int number;
 	private Date d;
 	
-	public void Ticket() { }
+	public Ticket() { }
 
 	public char getLabel() {
 		return label;
