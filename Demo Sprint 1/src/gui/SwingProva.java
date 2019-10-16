@@ -49,15 +49,12 @@ public class SwingProva {
 		
 		JButton btnPackage = new JButton("Package");
 		
-<<<<<<< HEAD
 		JTextArea txtrClickOnA = new JTextArea("Click on a button to receive a ticketosses bio!");
 		txtrClickOnA.setFont(new Font("Chiller", Font.PLAIN, 20));
 		txtrClickOnA.setEditable(false);
-=======
 		JTextArea textArea = new JTextArea("Click on a button to receive a ticket!");
 		textArea.setFont(new Font("Trebuchet MS", Font.PLAIN, 22));
 		textArea.setEditable(false);
->>>>>>> branch 'master' of https://github.com/peppehermes/Demo-Sprint-1.git
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
