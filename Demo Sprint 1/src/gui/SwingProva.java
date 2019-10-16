@@ -50,7 +50,7 @@ public class SwingProva {
 		JButton btnPackage = new JButton("Package");
 		
 		JTextArea textArea = new JTextArea("Click on a button to receive a ticket!");
-		textArea.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		textArea.setFont(new Font("Trebuchet MS", Font.PLAIN, 20));
 		textArea.setEditable(false);
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
