@@ -3,28 +3,10 @@ package gui;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import java.awt.BorderLayout;
-import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
-import javax.swing.JPanel;
-import java.awt.FlowLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import javax.swing.BoxLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.CardLayout;
-import javax.swing.SpringLayout;
-import net.miginfocom.swing.MigLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.JSeparator;
-import com.jgoodies.forms.layout.FormSpecs;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
 
@@ -67,9 +49,15 @@ public class SwingProva {
 		
 		JButton btnPackage = new JButton("Package");
 		
+<<<<<<< HEAD
 		JTextArea txtrClickOnA = new JTextArea("Click on a button to receive a ticketosses bio!");
 		txtrClickOnA.setFont(new Font("Chiller", Font.PLAIN, 20));
 		txtrClickOnA.setEditable(false);
+=======
+		JTextArea textArea = new JTextArea("Click on a button to receive a ticket!");
+		textArea.setFont(new Font("Trebuchet MS", Font.PLAIN, 22));
+		textArea.setEditable(false);
+>>>>>>> branch 'master' of https://github.com/peppehermes/Demo-Sprint-1.git
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
