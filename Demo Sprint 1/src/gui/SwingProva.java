@@ -9,6 +9,8 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class SwingProva {
 
@@ -46,6 +48,15 @@ public class SwingProva {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JButton btnAccount = new JButton("Account");
+		btnAccount.setToolTipText("Click here to get a ticket for the \"Accounting\" queue.");
+		btnAccount.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				System.out.println("You clicked on Accounting, brudah!");
+				
+			}
+		});
 		
 		JButton btnPackage = new JButton("Package");
 		
