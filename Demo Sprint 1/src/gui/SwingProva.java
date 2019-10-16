@@ -10,8 +10,6 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
 
-hello
-
 public class SwingProva {
 
 	private JFrame frame;
