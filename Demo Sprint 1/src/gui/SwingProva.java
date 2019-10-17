@@ -100,21 +100,37 @@ public class SwingProva {
 	textArea.setText("Here's your ticket!" + "\n\n");
 	//textArea.append(t.getLabel() + Integer.toString(t.getNumber()) + "\n\n" + dateFormat.format(t.getDate()) );
 	int waiting_time=estimateWaitingTime(ticket_type);
-	textArea.append(t.getLabel() + Integer.toString(t.getNumber()) + "\n\n" + dateFormat.format(t.getDate()) + "\n" + waiting_time + " minutes waiting time" );
+	if(waiting_time !=0) {
+		textArea.append(t.getLabel() + Integer.toString(t.getNumber()) + "\n\n" + dateFormat.format(t.getDate()) + "\n" + waiting_time + " minutes waiting time" );
+	
+	}
+	else {
+		textArea.append(t.getLabel() + Integer.toString(t.getNumber()) + "\n\n" + dateFormat.format(t.getDate())  );
+		
+	}
 	
  }
  
  public int estimateWaitingTime(char ticket_type) {
 	 int waiting_time = 0;
+	 
+	 
 	 if(ticket_type == 'A') {
 		 int account_list_size=AccountTicketList.size();
-		  waiting_time = (account_list_size * account_service_time) / account_counter ;
+		
+		 if(account_list_size > 1) {
+			 waiting_time = (account_list_size * account_service_time) / account_counter ;
+		 
+		 }
 		 
 	 }
 	 if(ticket_type == 'P') {
 		 int package_list_size=PackageTicketList.size();
-		  waiting_time = (package_list_size * package_service_time) / package_counter;
+		 if(package_list_size > 1) {
+			 waiting_time = (package_list_size * package_service_time) / package_counter;
 		 
+		 }
+		  
 	 }
 	 
 	return waiting_time;
