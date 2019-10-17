@@ -5,8 +5,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import Exception.LabelException;
+import Exception.TicketException;
 import gui.Main;
 import gui.Ticket;
 
@@ -91,4 +93,31 @@ public class Functions {
 		 
 		return waitingTime;
 	 }
+	 
+	 public static Ticket removeTicket(JTextField ticketCnt12, char type) throws LabelException, TicketException {
+			Ticket t = new Ticket();
+			
+			if (type == 'A') {
+			
+			if(Main.Account.getTicketList().size()>0) {	
+			t=Main.Account.getTicketList().remove(0);
+		    ticketCnt12.setText(t.getLabel()+ Integer.toString(t.getNumber()));
+			}
+			else 
+				throw new TicketException();
+			}
+			else if (type == 'P') {
+				
+			if(Main.Package.getTicketList().size()>0) {	
+			t=Main.Package.getTicketList().remove(0);
+			ticketCnt12.setText(t.getLabel()+ Integer.toString(t.getNumber()));
+			}
+			else 
+				throw new TicketException();
+			}
+			else
+				throw new LabelException();
+			
+			return t;
+		}
 }
