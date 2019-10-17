@@ -94,7 +94,8 @@ public class Functions {
 		return waitingTime;
 	 }
 	 
-	 public static Ticket removeTicket(JTextField ticketCnt12, char type) throws LabelException, TicketException {
+	 public static Ticket removeTicket(JTextField ticketCnt12, char type)
+			 throws LabelException, TicketException {
 			Ticket t = new Ticket();
 			
 			if (type == 'A') {

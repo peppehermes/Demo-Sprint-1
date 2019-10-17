@@ -85,6 +85,10 @@ public class Testing {
 		
 		w = Functions.estimateWaitingTime('A');
 		assertEquals(Double.valueOf(2.5), Double.valueOf(w));
+		
+		//Invalid label
+		assertThrows(LabelException.class, () -> Functions.estimateWaitingTime('1'));
+		assertThrows(LabelException.class, () -> Functions.estimateWaitingTime('n'));
 	}
 
 }
