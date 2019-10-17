@@ -90,7 +90,7 @@ public class CounterUI extends JDialog {
 					} catch (TicketException e1) {
 						ticketCnt2.setText("No Customer");
 						// TODO Auto-generated catch block
-						e1.printStackTrace();
+						//e1.printStackTrace();
 					}    
 				 
 			   }
@@ -113,7 +113,7 @@ public class CounterUI extends JDialog {
 					} catch (TicketException e1) {
 						ticketCnt3.setText("No Customer");
 						// TODO Auto-generated catch block
-						e1.printStackTrace();
+						//e1.printStackTrace();
 					}    
 				}
 				
@@ -127,7 +127,7 @@ public class CounterUI extends JDialog {
 						} catch (TicketException e1) {
 							ticketCnt3.setText("No Customer");
 							// TODO Auto-generated catch block
-							e1.printStackTrace();
+							//e1.printStackTrace();
 						}    
 					
 					}
@@ -142,16 +142,13 @@ public class CounterUI extends JDialog {
 						} catch (TicketException e1) {
 							ticketCnt3.setText("No Customer");
 							// TODO Auto-generated catch block
-							e1.printStackTrace();
+							//e1.printStackTrace();
 						}    
 					
 				}
 				
 			   }
-			  });
-		
-		
-		
+			  });	
 		
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
