@@ -59,6 +59,14 @@ public class SwingProva {
  }
  
  /*
+  * Reset method used to made lists empty
+  */
+ public void reset() {
+	 AccountTicketList = new ArrayList<Ticket>();
+     PackageTicketList = new ArrayList<Ticket>();
+ }
+ 
+ /*
   * Method used to add the ticket to the proper list
   */
  public Ticket addTicketToList(char type) {
