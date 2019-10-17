@@ -25,6 +25,9 @@ public class Main {
 	     CounterUI newWindow = new CounterUI();
 	     newWindow.setVisible(true);
 	     
+	     DisplayUI disWindow = new DisplayUI();
+	     disWindow.frame.setVisible(true);
+	     
 	    } catch (Exception e) {
 	     e.printStackTrace();
 	    }

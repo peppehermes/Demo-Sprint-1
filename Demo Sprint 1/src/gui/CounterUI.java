@@ -3,6 +3,7 @@ package gui;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.GroupLayout;
@@ -15,6 +16,7 @@ import Exception.LabelException;
 import Exception.TicketException;
 import Functions.Functions;
 
+
 public class CounterUI extends JDialog {
 
 	private JLabel cnt1;
@@ -26,11 +28,13 @@ public class CounterUI extends JDialog {
 	public int sizeAccount=0;
 	public int sizePackage=0;
 	
+	
+	
 	/**
 		 * Create the dialog.
 		 */
 	public CounterUI()  {
-		setBounds(1000, 330, 450, 300);
+		setBounds(1100, 330, 450, 300);
 		{
 			cnt3 = new JLabel("COUNTER 3");
 			cnt3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -48,21 +52,34 @@ public class CounterUI extends JDialog {
 		}
 		
 		ticketCnt1 = new JTextField();
+		ticketCnt1.setEditable(false);
 		ticketCnt1.setColumns(10);
 		
 		ticketCnt2 = new JTextField();
+		ticketCnt2.setEditable(false);
 		ticketCnt2.setColumns(10);
 		
 		ticketCnt3 = new JTextField();
+		ticketCnt3.setEditable(false);
 		ticketCnt3.setColumns(10);
+		
+		
+		
 		
 		JButton nextTick1 = new JButton("Next");
 		nextTick1.addMouseListener(new MouseAdapter() {
 			   @Override
 			   public void mouseClicked(MouseEvent e) {    
 				   
-				   try {					   
+				   try {
+					  if(Main.Account.getTicketList().isEmpty() == false) {
+				     Ticket t = Main.Account.getTicketList().get(0);
+					 DisplayUI.txtrClickOnA1.setText(null);   
+					 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "A" + Integer.toString(t.getNumber())); 
+					  }
 					 Functions.removeTicket(ticketCnt1,'A');
+					 
+					 
 					} catch (LabelException e1) {						
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -81,8 +98,12 @@ public class CounterUI extends JDialog {
 			   public void mouseClicked(MouseEvent e) {    
 				   
 				   try {
-					   
-					 Functions.removeTicket(ticketCnt2,'P');
+					   if(Main.Package.getTicketList().isEmpty() == false) {
+						     Ticket t = Main.Package.getTicketList().get(0);
+							 DisplayUI.txtrClickOnA1.setText(null);   
+							 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "P" + Integer.toString(t.getNumber())); 
+							  }
+						 Functions.removeTicket(ticketCnt2,'P');
 					} catch (LabelException e1) {
 						
 						// TODO Auto-generated catch block
@@ -105,6 +126,11 @@ public class CounterUI extends JDialog {
 				
 				 if(sizeAccount> sizePackage) {  
 				   try {
+					   if(Main.Account.getTicketList().isEmpty() == false) {
+						     Ticket t = Main.Account.getTicketList().get(0);
+							 DisplayUI.txtrClickOnA1.setText(null);   
+							 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "A" + Integer.toString(t.getNumber())); 
+							  }
 					   Functions.removeTicket(ticketCnt3,'A');
 					} catch (LabelException e1) {
 						
@@ -119,7 +145,12 @@ public class CounterUI extends JDialog {
 				
 				else if (sizePackage>sizeAccount) {
 					 try {
-						   Functions.removeTicket(ticketCnt3,'P');
+						 if(Main.Package.getTicketList().isEmpty() == false) {
+						     Ticket t = Main.Package.getTicketList().get(0);
+							 DisplayUI.txtrClickOnA1.setText(null);   
+							 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "P" + Integer.toString(t.getNumber())); 
+							  }
+						 Functions.removeTicket(ticketCnt3,'P');
 						} catch (LabelException e1) {
 							
 							// TODO Auto-generated catch block
@@ -134,6 +165,11 @@ public class CounterUI extends JDialog {
 				  else  {                 // Queues equal, i pick the one with lower Service time so P
 					
 					  try {
+						  if(Main.Package.getTicketList().isEmpty() == false) {
+							     Ticket t = Main.Package.getTicketList().get(0);
+								 DisplayUI.txtrClickOnA1.setText(null);   
+								 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "P" + Integer.toString(t.getNumber())); 
+								  }
 						   Functions.removeTicket(ticketCnt3,'P');
 						} catch (LabelException e1) {
 							

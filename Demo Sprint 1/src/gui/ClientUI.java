@@ -25,10 +25,11 @@ public class ClientUI {
 	 */
 	public ClientUI() {
 		frame = new JFrame();
-		  frame.setBounds(400, 300, 480, 360);
+		  frame.setBounds(100, 300, 480, 360);
 		  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		  
 		  JTextArea txtrClickOnA = new JTextArea("Click on a button to receive a ticket!");
+		  txtrClickOnA.setEditable(false);
 		  txtrClickOnA.setFont(new Font("Trebuchet MS", Font.PLAIN, 20));
 		  
 		  JButton btnAccount = new JButton("Account");
