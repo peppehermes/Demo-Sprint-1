@@ -9,31 +9,35 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import Exception.LabelException;
+import Exception.TicketException;
+import Functions.Functions;
 
 public class CounterUI extends JDialog {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+
 	private JLabel cnt1;
 	private JLabel cnt2;
 	private JLabel cnt3;
 	private JTextField ticketCnt1;
 	private JTextField ticketCnt2;
 	private JTextField ticketCnt3;
-
+	public int sizeAccount=0;
+	public int sizePackage=0;
+	
 	/**
-	 * Create the dialog.
-	 */
-	public CounterUI() {
-		setBounds(800, 150, 450, 300);
+		 * Create the dialog.
+		 */
+	public CounterUI()  {
+		setBounds(100, 100, 450, 300);
 		{
 			cnt3 = new JLabel("COUNTER 3");
 			cnt3.setHorizontalAlignment(SwingConstants.CENTER);
 			cnt3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		}
 		{
-			cnt1 = new JLabel("COUNTER 1x");
+			cnt1 = new JLabel("COUNTER 1");
 			cnt1.setHorizontalAlignment(SwingConstants.CENTER);
 			cnt1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		}
@@ -53,10 +57,104 @@ public class CounterUI extends JDialog {
 		ticketCnt3.setColumns(10);
 		
 		JButton nextTick1 = new JButton("Next");
+		nextTick1.addMouseListener(new MouseAdapter() {
+			   @Override
+			   public void mouseClicked(MouseEvent e) {    
+				   
+				   try {
+					   
+					 Functions.removeTicket(ticketCnt1,'A');
+					} catch (LabelException e1) {
+						
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (TicketException e1) {
+						ticketCnt1.setText("No Customer");
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}    
+				 
+			   }
+			  });
 		
 		JButton nextTick2 = new JButton("Next");
+		nextTick2.addMouseListener(new MouseAdapter() {
+			   @Override
+			   public void mouseClicked(MouseEvent e) {    
+				   
+				   try {
+					   
+					 Functions.removeTicket(ticketCnt2,'P');
+					} catch (LabelException e1) {
+						
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (TicketException e1) {
+						ticketCnt2.setText("No Customer");
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}    
+				 
+			   }
+			  });
 		
 		JButton nextTick3 = new JButton("Next");
+		nextTick3.addMouseListener(new MouseAdapter() {
+			   @Override
+			   public void mouseClicked(MouseEvent e) { 
+				 sizeAccount=Main.Account.getTicketList().size();
+				 sizePackage=Main.Package.getTicketList().size();
+				
+				 if(sizeAccount> sizePackage) {  
+				   try {
+					   Functions.removeTicket(ticketCnt3,'A');
+					} catch (LabelException e1) {
+						
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (TicketException e1) {
+						ticketCnt3.setText("No Customer");
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}    
+				}
+				
+				else if (sizePackage>sizeAccount) {
+					 try {
+						   Functions.removeTicket(ticketCnt3,'P');
+						} catch (LabelException e1) {
+							
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (TicketException e1) {
+							ticketCnt3.setText("No Customer");
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}    
+					
+					}
+				  else  {                 // Queues equal, i pick the one with lower Service time so P
+					
+					  try {
+						   Functions.removeTicket(ticketCnt3,'P');
+						} catch (LabelException e1) {
+							
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						} catch (TicketException e1) {
+							ticketCnt3.setText("No Customer");
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}    
+					
+				}
+				
+			   }
+			  });
+		
+		
+		
+		
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
