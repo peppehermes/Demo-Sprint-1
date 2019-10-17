@@ -96,29 +96,31 @@ public class Functions {
 	 
 	 public static Ticket removeTicket(JTextField ticketCnt12, char type)
 			 throws LabelException, TicketException {
-			Ticket t = new Ticket();
-			
-			if (type == 'A') {
-			
-			if(Main.Account.getTicketList().size()>0) {	
-			t=Main.Account.getTicketList().remove(0);
-		    ticketCnt12.setText(t.getLabel()+ Integer.toString(t.getNumber()));
+		Ticket t = new Ticket();
+		
+		if (type == 'A') {
+		
+			if (Main.Account.getTicketList().size() > 0) {	
+				t = Main.Account.getTicketList().remove(0);
+			    ticketCnt12.setText(t.getLabel() + Integer.toString(t.getNumber()));
 			}
 			else 
 				throw new TicketException();
-			}
-			else if (type == 'P') {
-				
-			if(Main.Package.getTicketList().size()>0) {	
-			t=Main.Package.getTicketList().remove(0);
-			ticketCnt12.setText(t.getLabel()+ Integer.toString(t.getNumber()));
-			}
-			else 
-				throw new TicketException();
-			}
-			else
-				throw new LabelException();
-			
-			return t;
 		}
+		
+		else if (type == 'P') {
+			
+			if (Main.Package.getTicketList().size() > 0) {	
+				t = Main.Package.getTicketList().remove(0);
+				ticketCnt12.setText(t.getLabel() + Integer.toString(t.getNumber()));
+			}
+			else 
+				throw new TicketException();
+		}
+		
+		else
+			throw new LabelException();
+		
+		return t;
+	}
 }

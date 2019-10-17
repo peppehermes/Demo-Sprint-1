@@ -30,7 +30,7 @@ public class CounterUI extends JDialog {
 		 * Create the dialog.
 		 */
 	public CounterUI()  {
-		setBounds(100, 100, 450, 300);
+		setBounds(1000, 330, 450, 300);
 		{
 			cnt3 = new JLabel("COUNTER 3");
 			cnt3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -61,17 +61,15 @@ public class CounterUI extends JDialog {
 			   @Override
 			   public void mouseClicked(MouseEvent e) {    
 				   
-				   try {
-					   
+				   try {					   
 					 Functions.removeTicket(ticketCnt1,'A');
-					} catch (LabelException e1) {
-						
+					} catch (LabelException e1) {						
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					} catch (TicketException e1) {
 						ticketCnt1.setText("No Customer");
 						// TODO Auto-generated catch block
-						e1.printStackTrace();
+						//e1.printStackTrace();
 					}    
 				 
 			   }
