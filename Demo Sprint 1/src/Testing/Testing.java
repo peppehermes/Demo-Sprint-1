@@ -7,28 +7,27 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 
 import Exception.LabelException;
-import gui.SwingProva;
+import Functions.Functions;
+import gui.Main;
 import gui.Ticket;
 
 public class Testing {
 	
-	private static SwingProva sw;
+	private static Main m;
+	
 	
 	@BeforeEach
 	public void setUp() throws LabelException {
-		sw = new SwingProva();
-
-		//Empty the databases
-		//sw.reset();
+		m = new Main();
 
 		//Empty the lists
-	//	sw.reset();
-
+		Functions.reset();
 	}
+	
 	
 	@AfterAll
 	public static void tearDown() throws Exception {
-		//sw.reset();
+		Functions.reset();
 	}
 	
 	/*
@@ -38,15 +37,25 @@ public class Testing {
 	public void TestAddTicketToList() throws LabelException {
 		Ticket t;
 		
-		t = sw.addTicketToList('A');
+		t = Functions.addTicketToList('A');
 		
 		assertEquals(t.getLabel(), 'A');
-		assertEquals(Integer.valueOf(t.getNumber()), Integer.valueOf(0));
+		assertEquals(Integer.valueOf(t.getNumber()), Integer.valueOf(1));
+		
+		t = Functions.addTicketToList('P');
+		
+		assertEquals(t.getLabel(), 'P');
+		assertEquals(Integer.valueOf(t.getNumber()), Integer.valueOf(1));
+		
+		// Second insert in Account, the number of the ticket should be 2
+		t = Functions.addTicketToList('A');
+		
+		assertEquals(t.getLabel(), 'A');
+		assertEquals(Integer.valueOf(t.getNumber()), Integer.valueOf(2));
 		
 		//Invalid label
-		assertThrows(LabelException.class, () -> sw.addTicketToList('1'));
-		assertThrows(LabelException.class, () -> sw.addTicketToList('n'));
-		
+		assertThrows(LabelException.class, () -> Functions.addTicketToList('1'));
+		assertThrows(LabelException.class, () -> Functions.addTicketToList('n'));		
 	}
 
 }

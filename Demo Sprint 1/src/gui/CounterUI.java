@@ -1,29 +1,20 @@
 package gui;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import javax.swing.JSeparator;
-import javax.swing.Box;
-import java.awt.Component;
 import javax.swing.JTextField;
-import java.awt.Panel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Font;
-import javax.swing.BoxLayout;
-import javax.swing.JDesktopPane;
-import java.awt.TextArea;
 
 public class CounterUI extends JDialog {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel cnt1;
 	private JLabel cnt2;
 	private JLabel cnt3;
@@ -32,24 +23,10 @@ public class CounterUI extends JDialog {
 	private JTextField ticketCnt3;
 
 	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		try {
-			CounterUI dialog = new CounterUI();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	*/
-
-	/**
 	 * Create the dialog.
 	 */
 	public CounterUI() {
-		setBounds(100, 100, 450, 300);
+		setBounds(800, 150, 450, 300);
 		{
 			cnt3 = new JLabel("COUNTER 3");
 			cnt3.setHorizontalAlignment(SwingConstants.CENTER);
