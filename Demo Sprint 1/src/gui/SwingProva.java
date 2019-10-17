@@ -59,6 +59,14 @@ public class SwingProva {
  }
  
  /*
+  * Reset method used to made lists empty
+  */
+ public void reset() {
+	 AccountTicketList = new ArrayList<Ticket>();
+     PackageTicketList = new ArrayList<Ticket>();
+ }
+ 
+ /*
   * Method used to add the ticket to the proper list
   */
  public Ticket addTicketToList(char type) {
@@ -123,7 +131,7 @@ public class SwingProva {
   });
   
   JLabel label = new JLabel("");
-  label.setIcon(new ImageIcon("/home/andrea/DemoSprint1/Webp.net-resizeimage.jpg"));
+  label.setIcon(new ImageIcon(SwingProva.class.getResource("/gui/Webp.net-resizeimage.jpg")));
   GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
   groupLayout.setHorizontalGroup(
   	groupLayout.createParallelGroup(Alignment.TRAILING)
