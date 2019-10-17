@@ -17,7 +17,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+
+import Exception.LabelException;
+
 import javax.swing.ImageIcon;
 
 public class SwingProva {
@@ -53,15 +55,16 @@ public class SwingProva {
 
  /**
   * Create the application.
+ * @throws LabelException 
   */
- public SwingProva() {
+ public SwingProva() throws LabelException {
   initialize();
  }
  
  /*
   * Method used to add the ticket to the proper list
   */
- public Ticket addTicketToList(char type) {
+ public Ticket addTicketToList(char type) throws LabelException {
 	Ticket t = new Ticket();
 	
 	if (type == 'A') {
@@ -78,6 +81,8 @@ public class SwingProva {
 	    
 		 PackageTicketList.add(t);
 	}
+	else
+		throw new LabelException();
 	
 	return t;	
  }
@@ -94,7 +99,7 @@ public class SwingProva {
  /**
   * Initialize the contents of the frame.
   */
- private void initialize() {
+ private void initialize() throws LabelException {
   frame = new JFrame();
   frame.setBounds(100, 100, 480, 360);
   frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -107,7 +112,13 @@ public class SwingProva {
   btnAccount.addMouseListener(new MouseAdapter() {
    @Override
    public void mouseClicked(MouseEvent e) {    
-	   Ticket t = addTicketToList('A');    
+	   Ticket t = new Ticket();
+	try {
+		t = addTicketToList('A');
+	} catch (LabelException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}    
 	   printTicket(txtrClickOnA, t);    
    }
   });
@@ -117,7 +128,13 @@ public class SwingProva {
   btnPackage.addMouseListener(new MouseAdapter() {
    @Override
    public void mouseClicked(MouseEvent e) {
-	   Ticket t = addTicketToList('P');	    
+	   Ticket t = new Ticket();
+	try {
+		t = addTicketToList('P');
+	} catch (LabelException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}	    
 	   printTicket(txtrClickOnA, t);
    }
   });
