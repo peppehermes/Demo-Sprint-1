@@ -148,7 +148,7 @@ public class SwingProva {
   });
   
   JLabel label = new JLabel("");
-  label.setIcon(new ImageIcon("/home/andrea/DemoSprint1/Webp.net-resizeimage.jpg"));
+  label.setIcon(new ImageIcon(SwingProva.class.getResource("/gui/Webp.net-resizeimage.jpg")));
   GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
   groupLayout.setHorizontalGroup(
   	groupLayout.createParallelGroup(Alignment.TRAILING)
