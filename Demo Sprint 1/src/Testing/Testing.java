@@ -16,12 +16,12 @@ public class Testing {
 	public void setUp() {
 		sw = new SwingProva();
 		//Empty the databases
-		sw.reset();
+		//sw.reset();
 	}
 	
 	@AfterAll
 	public static void tearDown() throws Exception {
-		sw.reset();
+		//sw.reset();
 	}
 	
 	/*

@@ -56,7 +56,7 @@ public class CounterUI extends JDialog {
 			cnt3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		}
 		{
-			cnt1 = new JLabel("COUNTER 1");
+			cnt1 = new JLabel("COUNTER 1x");
 			cnt1.setHorizontalAlignment(SwingConstants.CENTER);
 			cnt1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		}

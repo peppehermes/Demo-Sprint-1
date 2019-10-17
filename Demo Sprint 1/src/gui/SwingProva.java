@@ -59,14 +59,6 @@ public class SwingProva {
  }
  
  /*
-  * Reset method used to made lists empty
-  */
- public void reset() {
-	 AccountTicketList = new ArrayList<Ticket>();
-     PackageTicketList = new ArrayList<Ticket>();
- }
- 
- /*
   * Method used to add the ticket to the proper list
   */
  public Ticket addTicketToList(char type) {
@@ -131,22 +123,22 @@ public class SwingProva {
   });
   
   JLabel label = new JLabel("");
-  label.setIcon(new ImageIcon(SwingProva.class.getResource("/gui/Webp.net-resizeimage.jpg")));
+  label.setIcon(new ImageIcon("/home/andrea/DemoSprint1/Webp.net-resizeimage.jpg"));
   GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
   groupLayout.setHorizontalGroup(
-  	groupLayout.createParallelGroup(Alignment.TRAILING)
-  		.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+  	groupLayout.createParallelGroup(Alignment.LEADING)
+  		.addGroup(groupLayout.createSequentialGroup()
   			.addGap(44)
-  			.addComponent(txtrClickOnA, GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+  			.addComponent(txtrClickOnA, GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
   			.addGap(42))
-  		.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+  		.addGroup(groupLayout.createSequentialGroup()
   			.addGap(202)
   			.addComponent(label)
-  			.addContainerGap(210, Short.MAX_VALUE))
-  		.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+  			.addContainerGap(262, Short.MAX_VALUE))
+  		.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
   			.addContainerGap()
   			.addComponent(btnAccount)
-  			.addPreferredGap(ComponentPlacement.RELATED, 222, Short.MAX_VALUE)
+  			.addPreferredGap(ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
   			.addComponent(btnPackage)
   			.addContainerGap())
   );
@@ -159,9 +151,9 @@ public class SwingProva {
   			.addComponent(label)
   			.addGap(41)
   			.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-  				.addComponent(btnAccount)
-  				.addComponent(btnPackage))
-  			.addContainerGap(62, Short.MAX_VALUE))
+  				.addComponent(btnPackage)
+  				.addComponent(btnAccount))
+  			.addContainerGap(109, Short.MAX_VALUE))
   );
   frame.getContentPane().setLayout(groupLayout);
  }
