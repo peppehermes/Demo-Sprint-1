@@ -35,6 +35,9 @@ public class SwingProva {
      SwingProva window = new SwingProva();
      window.frame.setVisible(true);
      
+     CounterUI newWindow = new CounterUI();
+     newWindow.setVisible(true);
+     
      AccountTicketList = new ArrayList<Ticket>();
      PackageTicketList = new ArrayList<Ticket>();
      
