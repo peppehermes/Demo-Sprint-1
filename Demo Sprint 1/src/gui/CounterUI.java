@@ -24,6 +24,12 @@ import javax.swing.JDesktopPane;
 import java.awt.TextArea;
 
 public class CounterUI extends JDialog {
+	private JLabel cnt1;
+	private JLabel cnt2;
+	private JLabel cnt3;
+	private JTextField ticketCnt1;
+	private JTextField ticketCnt2;
+	private JTextField ticketCnt3;
 
 	/**
 	 * Launch the application.
