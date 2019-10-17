@@ -17,13 +17,13 @@ public class Testing {
 	@BeforeEach
 	public void setUp() throws LabelException {
 		sw = new SwingProva();
-<<<<<<< HEAD
+
 		//Empty the databases
 		//sw.reset();
-=======
+
 		//Empty the lists
-		sw.reset();
->>>>>>> branch 'master' of https://github.com/peppehermes/Demo-Sprint-1
+	//	sw.reset();
+
 	}
 	
 	@AfterAll

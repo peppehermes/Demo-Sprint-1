@@ -141,18 +141,25 @@ public class SwingProva {
   
   JLabel label = new JLabel("");
   label.setIcon(new ImageIcon("/home/andrea/DemoSprint1/Webp.net-resizeimage.jpg"));
+  
+  JLabel label_1 = new JLabel("");
+  label_1.setIcon(new ImageIcon(SwingProva.class.getResource("/gui/Webp.net-resizeimage.jpg")));
   GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
   groupLayout.setHorizontalGroup(
-  	groupLayout.createParallelGroup(Alignment.LEADING)
-  		.addGroup(groupLayout.createSequentialGroup()
-  			.addGap(44)
-  			.addComponent(txtrClickOnA, GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
-  			.addGap(42))
+  	groupLayout.createParallelGroup(Alignment.TRAILING)
   		.addGroup(groupLayout.createSequentialGroup()
   			.addGap(202)
   			.addComponent(label)
   			.addContainerGap(262, Short.MAX_VALUE))
-  		.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+  		.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+  			.addGap(44)
+  			.addComponent(txtrClickOnA, GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+  			.addGap(42))
+  		.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+  			.addGap(192)
+  			.addComponent(label_1)
+  			.addContainerGap(204, Short.MAX_VALUE))
+  		.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
   			.addContainerGap()
   			.addComponent(btnAccount)
   			.addPreferredGap(ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
@@ -163,14 +170,16 @@ public class SwingProva {
   	groupLayout.createParallelGroup(Alignment.LEADING)
   		.addGroup(groupLayout.createSequentialGroup()
   			.addContainerGap()
-  			.addComponent(txtrClickOnA, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE)
+  			.addComponent(txtrClickOnA, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
   			.addPreferredGap(ComponentPlacement.RELATED)
   			.addComponent(label)
-  			.addGap(41)
+  			.addPreferredGap(ComponentPlacement.RELATED)
+  			.addComponent(label_1)
+  			.addGap(18)
   			.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-  				.addComponent(btnPackage)
-  				.addComponent(btnAccount))
-  			.addContainerGap(109, Short.MAX_VALUE))
+  				.addComponent(btnAccount)
+  				.addComponent(btnPackage))
+  			.addContainerGap(78, Short.MAX_VALUE))
   );
   frame.getContentPane().setLayout(groupLayout);
  }
