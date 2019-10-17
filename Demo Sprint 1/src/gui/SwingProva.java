@@ -26,6 +26,11 @@ public class SwingProva {
  
  public static ArrayList<Ticket> AccountTicketList;
  public static ArrayList<Ticket> PackageTicketList;
+ 
+ static int account_service_time = 10; //minute
+ static int package_service_time = 5; //minute
+ static int account_counter = 3; 
+ static int package_counter = 2; 
 
  private JFrame frame;
 
@@ -90,10 +95,29 @@ public class SwingProva {
  /*
   * Method used to print the ticket on the requested textArea
   */
- public void printTicket(JTextArea textArea, Ticket t) {
+ public void printTicket(JTextArea textArea, Ticket t, char ticket_type) {
 	DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy hh:mm:ss");
 	textArea.setText("Here's your ticket!" + "\n\n");
-	textArea.append(t.getLabel() + Integer.toString(t.getNumber()) + "\n\n" + dateFormat.format(t.getDate()) );
+	//textArea.append(t.getLabel() + Integer.toString(t.getNumber()) + "\n\n" + dateFormat.format(t.getDate()) );
+	int waiting_time=estimateWaitingTime(ticket_type);
+	textArea.append(t.getLabel() + Integer.toString(t.getNumber()) + "\n\n" + dateFormat.format(t.getDate()) + "\n" + waiting_time + " minutes waiting time" );
+	
+ }
+ 
+ public int estimateWaitingTime(char ticket_type) {
+	 int waiting_time = 0;
+	 if(ticket_type == 'A') {
+		 int account_list_size=AccountTicketList.size();
+		  waiting_time = (account_list_size * account_service_time) / account_counter ;
+		 
+	 }
+	 if(ticket_type == 'P') {
+		 int package_list_size=PackageTicketList.size();
+		  waiting_time = (package_list_size * package_service_time) / package_counter;
+		 
+	 }
+	 
+	return waiting_time;
  }
 
  /**
@@ -119,7 +143,7 @@ public class SwingProva {
 		// TODO Auto-generated catch block
 		e1.printStackTrace();
 	}    
-	   printTicket(txtrClickOnA, t);    
+	   printTicket(txtrClickOnA, t,'A');    
    }
   });
   
@@ -135,7 +159,7 @@ public class SwingProva {
 		// TODO Auto-generated catch block
 		e1.printStackTrace();
 	}	    
-	   printTicket(txtrClickOnA, t);
+	   printTicket(txtrClickOnA, t,'P');
    }
   });
   
