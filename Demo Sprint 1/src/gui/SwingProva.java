@@ -51,6 +51,39 @@ public class SwingProva {
  public SwingProva() {
   initialize();
  }
+ 
+ /*
+  * Method used to add the ticket to the proper list
+  */
+ public Ticket addTicketToList(char type) {
+	Ticket t = new Ticket();
+	
+	if (type == 'A') {
+		t.setLabel('A');
+		t.setDate(new Date());
+		t.setNumber(AccountTicketList.size());
+		
+		AccountTicketList.add(t);
+	}
+	else if (type == 'P') {
+		 t.setLabel('P');
+		 t.setDate(new Date());
+		 t.setNumber(PackageTicketList.size());
+	    
+		 PackageTicketList.add(t);
+	}
+	
+	return t;	
+ }
+ 
+ /*
+  * Method used to print the ticket on the requested textArea
+  */
+ public void printTicket(JTextArea textArea, Ticket t) {
+	DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy hh:mm:ss");
+	textArea.setText("Here's your ticket!" + "\n\n");
+	textArea.append(t.getLabel() + Integer.toString(t.getNumber()) + "\n\n" + dateFormat.format(t.getDate()) );
+ }
 
  /**
   * Initialize the contents of the frame.
@@ -59,7 +92,6 @@ public class SwingProva {
   frame = new JFrame();
   frame.setBounds(100, 100, 480, 360);
   frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-  DateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy hh:mm:ss");
   
   JTextArea txtrClickOnA = new JTextArea("Click on a button to receive a ticket!");
   txtrClickOnA.setFont(new Font("Trebuchet MS", Font.PLAIN, 20));
@@ -68,19 +100,9 @@ public class SwingProva {
   btnAccount.setFont(new Font("Trebuchet MS", Font.PLAIN, 20));
   btnAccount.addMouseListener(new MouseAdapter() {
    @Override
-   public void mouseClicked(MouseEvent e) {
-    
-    
-    Ticket t = new Ticket();
-    t.setLabel('A');
-    t.setDate(new Date());
-    t.setNumber(AccountTicketList.size());
-    
-    AccountTicketList.add(t);
-    txtrClickOnA.setText("Here's your ticket!" + "\n\n");
-    txtrClickOnA.append(t.getLabel() + Integer.toString(t.getNumber()) + "\n\n" + dateFormat.format(t.getDate()) );
-    
-    
+   public void mouseClicked(MouseEvent e) {    
+	   Ticket t = addTicketToList('A');    
+	   printTicket(txtrClickOnA, t);    
    }
   });
   
@@ -89,17 +111,8 @@ public class SwingProva {
   btnPackage.addMouseListener(new MouseAdapter() {
    @Override
    public void mouseClicked(MouseEvent e) {
-    
-    
-    Ticket t = new Ticket();
-    t.setLabel('P');
-    t.setDate(new Date());
-    t.setNumber(PackageTicketList.size());
-    
-    PackageTicketList.add(t);
-    txtrClickOnA.setText("Here's your ticket!" + "\n\n");
-    txtrClickOnA.append(t.getLabel() + Integer.toString(t.getNumber()) + "\n\n" + dateFormat.format(t.getDate()) );
-    
+	   Ticket t = addTicketToList('P');	    
+	   printTicket(txtrClickOnA, t);
    }
   });
   GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
