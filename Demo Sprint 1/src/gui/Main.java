@@ -6,8 +6,8 @@ import Exception.LabelException;
 
 public class Main {
 	
-	public static Request Account = new Request();
-	public static Request Package = new Request();
+	public static Request Account = new Request(5, 2);
+	public static Request Package = new Request(3, 2);
 	
 	/**
 	  * Launch the application.
@@ -16,9 +16,6 @@ public class Main {
 	  EventQueue.invokeLater(new Runnable() {
 	   		  
 	   public void run() {
-		   
-	   Account = new Request(5, 2);
-	   Package = new Request(3, 2);
 	   
 	    try {
 	     //Create a new window

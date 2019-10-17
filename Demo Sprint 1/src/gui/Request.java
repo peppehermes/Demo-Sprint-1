@@ -31,6 +31,10 @@ public class Request {
 	public void resetTicketList() {
 		this.ticketList = new ArrayList<Ticket>();
 	}
+	
+	public void resetTotalServed() {
+		this.totalServed = 1;
+	}
 
 	public Integer getServiceTime() {
 		return serviceTime;

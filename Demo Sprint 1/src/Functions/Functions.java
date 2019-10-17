@@ -16,7 +16,9 @@ public class Functions {
 	  */
 	 public static void reset() {
 		 Main.Account.resetTicketList();
+		 Main.Account.resetTotalServed();;
 		 Main.Package.resetTicketList();
+		 Main.Package.resetTotalServed();;
 	 }
 	 
 	 /*
@@ -58,7 +60,7 @@ public class Functions {
 		textArea.setText("Here's your ticket!" + "\n\n");
 		
 		// Estimate waiting time for his type of request
-		int waitingTime = estimateWaitingTime(t.getLabel());
+		float waitingTime = estimateWaitingTime(t.getLabel());
 		
 		// Print the ticket
 		textArea.append(t.getLabel() + Integer.toString(t.getNumber()) + "\n\n" + 
@@ -66,22 +68,22 @@ public class Functions {
 		
 	 }
 	 
-	 public static int estimateWaitingTime(char ticketType) throws LabelException {
-		 int waitingTime = 0;
+	 public static float estimateWaitingTime(char ticketType) throws LabelException {
+		 float waitingTime = 0;
 		 if(ticketType == 'A') {
-			 int accountListSize = Main.Account.getTicketList().size();
-			 if (accountListSize > 1) {
+			 int accountListSize = Main.Account.getTicketList().size() - 1;
+			 if (accountListSize > 0) {
 				 int accountServiceTime = Main.Account.getServiceTime();
 				 int accountCounter = Main.Account.getCounterNumber();
-				 waitingTime = (accountListSize * accountServiceTime) / accountCounter;
+				 waitingTime = (float) (accountListSize * accountServiceTime) / (float) accountCounter;
 			 }
 		 }
 		 else if(ticketType == 'P') {
-			 int packageListSize = Main.Package.getTicketList().size();
-			 if (packageListSize > 1) {
+			 int packageListSize = Main.Package.getTicketList().size() - 1;
+			 if (packageListSize > 0) {
 				 int packageServiceTime = Main.Package.getServiceTime();
 				 int packageCounter = Main.Package.getCounterNumber();
-				 waitingTime = (packageListSize * packageServiceTime) / packageCounter;
+				 waitingTime = (float) (packageListSize * packageServiceTime) / (float) packageCounter;
 			 }
 		 }
 		 else
