@@ -3,7 +3,6 @@ package gui;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.GroupLayout;
@@ -19,6 +18,10 @@ import Functions.Functions;
 
 public class CounterUI extends JDialog {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel cnt1;
 	private JLabel cnt2;
 	private JLabel cnt3;
