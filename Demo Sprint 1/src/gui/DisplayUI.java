@@ -1,23 +1,13 @@
 package gui;
 
-
-
 import java.awt.Font;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
-
-import Exception.LabelException;
-import Functions.Functions;
-import javax.swing.JTextField;
 
 public class DisplayUI {
 
