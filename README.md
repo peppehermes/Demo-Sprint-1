@@ -1,15 +1,17 @@
-# Demo-Sprint-1
+#Group I
+
+## Demo-Sprint-1
 
 First sprint demo for Software Engineering 2.
 
-## Definition of Done
+### Definition of Done
 
 - Unit tests (passing)
 - E2E (End-to-End) acceptance test given by the customer
 - Code on VCS (Version Control System)
 - Code review
 
-## System configuration
+### System configuration
 
 Default: 3 counters
 
