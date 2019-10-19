@@ -37,6 +37,7 @@ public class CounterUI extends JDialog {
 		 * Create the dialog.
 		 */
 	public CounterUI()  {
+		setResizable(false);
 		setBounds(1100, 330, 450, 300);
 		{
 			cnt3 = new JLabel("COUNTER 3");

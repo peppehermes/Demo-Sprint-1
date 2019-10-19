@@ -20,6 +20,7 @@ public class DisplayUI {
 	
 	public DisplayUI() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		  frame.setBounds(600, 300, 480, 360);
 		  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		  

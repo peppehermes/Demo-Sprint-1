@@ -25,6 +25,7 @@ public class ClientUI {
 	 */
 	public ClientUI() {
 		frame = new JFrame();
+		frame.setResizable(false);
 		  frame.setBounds(100, 300, 480, 360);
 		  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		  
