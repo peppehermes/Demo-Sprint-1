@@ -176,7 +176,7 @@ class Test {
 
 		Request r = new Request(7, 4);
 		
-		//Test getters
+		//Test Getters
 		assertEquals(Integer.valueOf(7), Integer.valueOf(r.getServiceTime()));
 		assertEquals(Integer.valueOf(4), Integer.valueOf(r.getCounterNumber()));
 		assertEquals(Integer.valueOf(1), Integer.valueOf(r.getTotalServed()));
