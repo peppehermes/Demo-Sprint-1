@@ -2,11 +2,19 @@ package Testing;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.Date;
+
+import javax.swing.JTextField;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 
 import Exception.LabelException;
+import Exception.TicketException;
 import Functions.Functions;
+import gui.Main;
+import gui.Request;
 import gui.Ticket;
 
 class Test {
@@ -22,6 +30,40 @@ class Test {
 		Functions.reset();
 		System.out.println("AfterAll tearDown() method called");
 	}
+	
+	
+	/*
+	 * Test methods for Ticket class
+	 */
+	@org.junit.jupiter.api.Test
+	public void TestTicketMethods() throws LabelException{
+		
+		//Create Ticket and insert into List
+		Ticket t;
+		
+		t = Functions.addTicketToList('A');
+		
+		//Test getters
+		assertEquals('A', t.getLabel());
+		assertEquals(Integer.valueOf(1), Integer.valueOf(t.getNumber()));
+		
+		//Test setters
+		t.setLabel('B');
+		assertEquals('B', t.getLabel());
+		
+		t.setNumber(7);
+		assertEquals(Integer.valueOf(7), Integer.valueOf(t.getNumber()));
+		
+		Date d = new Date();
+		t.setDate(d);
+		assertEquals(d, t.getDate());		
+	}
+	
+	
+	
+	
+	
+	
 
 	/*
 	 * Test method for addTicketToList()
@@ -49,6 +91,47 @@ class Test {
 		//Invalid label
 		assertThrows(LabelException.class, () -> Functions.addTicketToList('1'));
 		assertThrows(LabelException.class, () -> Functions.addTicketToList('n'));		
+	}
+	
+	/*
+	 * Test method for removeTicket()
+	 */
+	@org.junit.jupiter.api.Test
+	public void TestRemoveTicket() throws LabelException, TicketException {
+		Ticket t;
+		
+		t = Functions.addTicketToList('A');
+		
+		assertEquals('A', t.getLabel());
+		assertEquals(Integer.valueOf(1), Integer.valueOf(t.getNumber()));
+		
+		// Second insert in Account, the number of the ticket should be 2
+		t = Functions.addTicketToList('A');
+		
+		JTextField txtField = new JTextField();
+		
+		// Removing Ticket #1 from the list A
+		t = Functions.removeTicket(txtField, 'A');
+		
+		assertEquals('A', t.getLabel());
+		assertEquals(Integer.valueOf(1), Integer.valueOf(t.getNumber()));
+		
+		// Removing Ticket #2 from the list A
+		t = Functions.removeTicket(txtField, 'A');
+				
+		assertEquals('A', t.getLabel());
+		assertEquals(Integer.valueOf(2), Integer.valueOf(t.getNumber()));
+		
+		//Trying to remove a Ticket from an Empty list
+		//will generate a TicketException
+		assertThrows(TicketException.class, () -> Functions.removeTicket(txtField, 'A'));
+		assertThrows(TicketException.class, () -> Functions.removeTicket(txtField, 'P'));
+		
+		//Trying to remove a Ticket from a non-existent List
+		//will generate a LabelException
+		assertThrows(LabelException.class, () -> Functions.removeTicket(txtField, '2'));
+		assertThrows(LabelException.class, () -> Functions.removeTicket(txtField, 'x'));
+		
 	}
 	
 	/*
@@ -83,5 +166,36 @@ class Test {
 		assertThrows(LabelException.class, () -> Functions.estimateWaitingTime('1'));
 		assertThrows(LabelException.class, () -> Functions.estimateWaitingTime('n'));
 	}
+	
 
+	/*
+	 * Test methods for Request class
+	 */
+	@org.junit.jupiter.api.Test
+	public void TestRequestMethods() throws LabelException{
+
+		Request r = new Request(7, 4);
+		
+		//Test getters
+		assertEquals(Integer.valueOf(7), Integer.valueOf(r.getServiceTime()));
+		assertEquals(Integer.valueOf(4), Integer.valueOf(r.getCounterNumber()));
+		assertEquals(Integer.valueOf(1), Integer.valueOf(r.getTotalServed()));
+		
+		//Test setters
+		r.setServiceTime(22);
+		assertEquals(Integer.valueOf(22), Integer.valueOf(r.getServiceTime()));
+		
+		r.setCounterNumber(15);
+		assertEquals(Integer.valueOf(15), Integer.valueOf(r.getCounterNumber()));
+		
+		r.setTotalServed(11);
+		assertEquals(Integer.valueOf(11), Integer.valueOf(r.getTotalServed()));
+		
+		//Test change in TotalServed when adding a Ticket
+		assertEquals(Integer.valueOf(1), Integer.valueOf(Main.Account.getTotalServed()));
+		Functions.addTicketToList('A');
+		assertEquals(Integer.valueOf(2), Integer.valueOf(Main.Account.getTotalServed()));
+		
+	}
+	
 }
