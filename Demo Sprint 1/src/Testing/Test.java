@@ -58,11 +58,7 @@ class Test {
 		t.setDate(d);
 		assertEquals(d, t.getDate());		
 	}
-	
-	
-	
-	
-	
+		
 	
 
 	/*
@@ -197,5 +193,59 @@ class Test {
 		assertEquals(Integer.valueOf(2), Integer.valueOf(Main.Account.getTotalServed()));
 		
 	}
+	
+	
+	/*
+	 * Test method for displayTicket()
+	 */
+	@org.junit.jupiter.api.Test
+	public void TestDisplayTicket() throws LabelException, TicketException{
+		
+		JTextField txtField = new JTextField();
+		Ticket tA;
+		Ticket tP;
+		Ticket tChosen;
+		
+		tA = Functions.addTicketToList('A');
+		tP = Functions.addTicketToList('P');
+		
+		//Now, since the Account request type
+		//has a longer estimated waiting time
+		//The next Ticket called should be
+		//from the Account list
+		tChosen = Functions.displayTicket(txtField, 'B');
+		
+		assertEquals(tP.getLabel(), tChosen.getLabel());
+		assertEquals(tP.getNumber(), tChosen.getNumber());
+		
+		//Since only the Account list is not empty
+		//the next ticket called will be from that list
+		tChosen = Functions.displayTicket(txtField, 'B');
+		
+		assertEquals(tA.getLabel(), tChosen.getLabel());
+		assertEquals(tA.getNumber(), tChosen.getNumber());
+		
+		//Testing call from a specific list
+		tA = Functions.addTicketToList('A');
+		tP = Functions.addTicketToList('P');
+		
+		tChosen = Functions.displayTicket(txtField, 'A');
+		assertEquals(tA.getLabel(), tChosen.getLabel());
+		assertEquals(tA.getNumber(), tChosen.getNumber());
+		
+		tChosen = Functions.displayTicket(txtField, 'P');
+		assertEquals(tP.getLabel(), tChosen.getLabel());
+		assertEquals(tP.getNumber(), tChosen.getNumber());
+		
+		//Giving an invalid label as Input
+		//will generate a LabelException
+		assertThrows(LabelException.class, () -> Functions.displayTicket(txtField, 'G'));
+		assertThrows(LabelException.class, () -> Functions.displayTicket(txtField, '2'));
+		
+		
+		
+	}
+	
+	
 	
 }

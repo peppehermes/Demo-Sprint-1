@@ -188,6 +188,8 @@ public class Functions {
 			}
 			 
 		 }
+		 else 
+				throw new LabelException();
 		 
 		 return t;
 	 }
