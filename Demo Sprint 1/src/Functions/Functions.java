@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 
 import Exception.LabelException;
 import Exception.TicketException;
+import gui.DisplayUI;
 import gui.Main;
 import gui.Ticket;
 
@@ -123,4 +124,72 @@ public class Functions {
 		
 		return t;
 	}
+	 
+	 public static Ticket displayTicket(JTextField tc, char type) throws LabelException, TicketException {
+		 
+		 Ticket t = null ;
+		  
+		 //Account counter
+		 if (type == 'A') {
+			 
+			 if(Main.Account.getTicketList().isEmpty() == false) {
+				 t = Main.Account.getTicketList().get(0);
+				 DisplayUI.txtrClickOnA1.setText(null);   
+				 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "A" + Integer.toString(t.getNumber())); 
+				  }
+				 Functions.removeTicket(tc,'A');
+			 
+		 }
+		 //Package Counter
+		 else if(type == 'P') {
+
+			 if(Main.Package.getTicketList().isEmpty() == false) {
+				 t = Main.Package.getTicketList().get(0);
+				 DisplayUI.txtrClickOnA1.setText(null);   
+				 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "P" + Integer.toString(t.getNumber())); 
+				  }
+			 Functions.removeTicket(tc,'P');
+			 
+		 }
+		 //Counter that manages both queues
+		 else if (type == 'B') {
+			 
+			
+			int sizeAccount=Main.Account.getTicketList().size();
+			int sizePackage=Main.Package.getTicketList().size();
+			
+			if(sizeAccount> sizePackage) {  
+				
+				if(Main.Account.getTicketList().isEmpty() == false) {
+				     t = Main.Account.getTicketList().get(0);
+					 DisplayUI.txtrClickOnA1.setText(null);   
+					 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "A" + Integer.toString(t.getNumber())); 
+					  }
+			   Functions.removeTicket(tc,'A');
+				
+			}
+			else if(sizePackage>sizeAccount ) {
+				
+				if(Main.Package.getTicketList().isEmpty() == false) {
+				     t = Main.Package.getTicketList().get(0);
+					 DisplayUI.txtrClickOnA1.setText(null);   
+					 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "P" + Integer.toString(t.getNumber())); 
+					  }
+				 Functions.removeTicket(tc,'P');
+			}
+			else {
+				
+				if(Main.Package.getTicketList().isEmpty() == false) {
+					 t = Main.Package.getTicketList().get(0);
+					 DisplayUI.txtrClickOnA1.setText(null);   
+					 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "P" + Integer.toString(t.getNumber())); 
+					  }
+			   Functions.removeTicket(tc,'P');
+			}
+			 
+		 }
+		 
+		 return t;
+	 }
+	 
 }

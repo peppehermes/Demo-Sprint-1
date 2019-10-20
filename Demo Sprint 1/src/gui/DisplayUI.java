@@ -16,7 +16,7 @@ public class DisplayUI {
 	/**
 	 * Create the dialog.
 	 */
-	static JTextArea txtrClickOnA1 = new JTextArea("");
+	public static JTextArea txtrClickOnA1 = new JTextArea("");
 	
 	public DisplayUI() {
 		frame = new JFrame();
