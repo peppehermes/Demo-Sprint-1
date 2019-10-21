@@ -31,14 +31,13 @@ public class CounterUI extends JDialog {
 	public int sizeAccount=0;
 	public int sizePackage=0;
 	
-	
-	
 	/**
 		 * Create the dialog.
 		 */
 	public CounterUI()  {
 		setResizable(false);
 		setBounds(1100, 330, 450, 300);
+		
 		{
 			cnt3 = new JLabel("COUNTER 3");
 			cnt3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -69,21 +68,14 @@ public class CounterUI extends JDialog {
 		
 		
 		
-		
+		//Counter 1 button
 		JButton nextTick1 = new JButton("Next");
 		nextTick1.addMouseListener(new MouseAdapter() {
 			   @Override
 			   public void mouseClicked(MouseEvent e) {    
 				   
-				   try {
-					  if(Main.Account.getTicketList().isEmpty() == false) {
-				     Ticket t = Main.Account.getTicketList().get(0);
-					 DisplayUI.txtrClickOnA1.setText(null);   
-					 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "A" + Integer.toString(t.getNumber())); 
-					  }
-					 Functions.removeTicket(ticketCnt1,'A');
-					 
-					 
+				   try {					 
+					   Functions.displayTicket(ticketCnt1,'A');
 					} catch (LabelException e1) {						
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -95,19 +87,14 @@ public class CounterUI extends JDialog {
 				 
 			   }
 			  });
-		
+		//Counter 2 button
 		JButton nextTick2 = new JButton("Next");
 		nextTick2.addMouseListener(new MouseAdapter() {
 			   @Override
 			   public void mouseClicked(MouseEvent e) {    
 				   
-				   try {
-					   if(Main.Package.getTicketList().isEmpty() == false) {
-						     Ticket t = Main.Package.getTicketList().get(0);
-							 DisplayUI.txtrClickOnA1.setText(null);   
-							 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "P" + Integer.toString(t.getNumber())); 
-							  }
-						 Functions.removeTicket(ticketCnt2,'P');
+				   try {			 
+					   Functions.displayTicket(ticketCnt2,'P');
 					} catch (LabelException e1) {
 						
 						// TODO Auto-generated catch block
@@ -120,7 +107,7 @@ public class CounterUI extends JDialog {
 				 
 			   }
 			  });
-		
+		//Counter 3 button
 		JButton nextTick3 = new JButton("Next");
 		nextTick3.addMouseListener(new MouseAdapter() {
 			   @Override
@@ -128,14 +115,9 @@ public class CounterUI extends JDialog {
 				 sizeAccount=Main.Account.getTicketList().size();
 				 sizePackage=Main.Package.getTicketList().size();
 				
-				 if(sizeAccount> sizePackage) {  
+				
 				   try {
-					   if(Main.Account.getTicketList().isEmpty() == false) {
-						     Ticket t = Main.Account.getTicketList().get(0);
-							 DisplayUI.txtrClickOnA1.setText(null);   
-							 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "A" + Integer.toString(t.getNumber())); 
-							  }
-					   Functions.removeTicket(ticketCnt3,'A');
+					   Functions.displayTicket(ticketCnt3, 'B');
 					} catch (LabelException e1) {
 						
 						// TODO Auto-generated catch block
@@ -144,48 +126,8 @@ public class CounterUI extends JDialog {
 						ticketCnt3.setText("No Customer");
 						// TODO Auto-generated catch block
 						//e1.printStackTrace();
-					}    
-				}
-				
-				else if (sizePackage>sizeAccount) {
-					 try {
-						 if(Main.Package.getTicketList().isEmpty() == false) {
-						     Ticket t = Main.Package.getTicketList().get(0);
-							 DisplayUI.txtrClickOnA1.setText(null);   
-							 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "P" + Integer.toString(t.getNumber())); 
-							  }
-						 Functions.removeTicket(ticketCnt3,'P');
-						} catch (LabelException e1) {
-							
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						} catch (TicketException e1) {
-							ticketCnt3.setText("No Customer");
-							// TODO Auto-generated catch block
-							//e1.printStackTrace();
-						}    
-					
-					}
-				  else  {                 // Queues equal, i pick the one with lower Service time so P
-					
-					  try {
-						  if(Main.Package.getTicketList().isEmpty() == false) {
-							     Ticket t = Main.Package.getTicketList().get(0);
-								 DisplayUI.txtrClickOnA1.setText(null);   
-								 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "P" + Integer.toString(t.getNumber())); 
-								  }
-						   Functions.removeTicket(ticketCnt3,'P');
-						} catch (LabelException e1) {
-							
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						} catch (TicketException e1) {
-							ticketCnt3.setText("No Customer");
-							// TODO Auto-generated catch block
-							//e1.printStackTrace();
-						}    
-					
-				}
+					}   
+
 				
 			   }
 			  });	
@@ -250,5 +192,6 @@ public class CounterUI extends JDialog {
 					.addGap(178))
 		);
 		getContentPane().setLayout(groupLayout);
+		
 	}
 }
