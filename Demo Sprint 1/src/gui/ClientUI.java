@@ -75,18 +75,11 @@ public class ClientUI {
 		   }
 		  });
 		  
-		  JLabel label = new JLabel("");
-		  label.setIcon(new ImageIcon("/home/andrea/DemoSprint1/Webp.net-resizeimage.jpg"));
-		  
 		  JLabel label_1 = new JLabel("");
 		  label_1.setIcon(new ImageIcon(ClientUI.class.getResource("/gui/Webp.net-resizeimage.jpg")));
 		  GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		  groupLayout.setHorizontalGroup(
 		  	groupLayout.createParallelGroup(Alignment.TRAILING)
-		  		.addGroup(groupLayout.createSequentialGroup()
-		  			.addGap(202)
-		  			.addComponent(label)
-		  			.addContainerGap(262, Short.MAX_VALUE))
 		  		.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
 		  			.addGap(44)
 		  			.addComponent(txtrClickOnA, GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
@@ -107,8 +100,6 @@ public class ClientUI {
 		  		.addGroup(groupLayout.createSequentialGroup()
 		  			.addContainerGap()
 		  			.addComponent(txtrClickOnA, GroupLayout.PREFERRED_SIZE, 147, GroupLayout.PREFERRED_SIZE)
-		  			.addPreferredGap(ComponentPlacement.RELATED)
-		  			.addComponent(label)
 		  			.addPreferredGap(ComponentPlacement.RELATED)
 		  			.addComponent(label_1)
 		  			.addGap(18)

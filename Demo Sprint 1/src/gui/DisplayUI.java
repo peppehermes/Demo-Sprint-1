@@ -53,6 +53,4 @@ public class DisplayUI {
 		  );
 		  frame.getContentPane().setLayout(groupLayout);
 	}
-	
-
 }

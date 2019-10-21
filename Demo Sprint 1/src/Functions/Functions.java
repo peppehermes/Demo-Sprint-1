@@ -71,6 +71,9 @@ public class Functions {
 		
 	 }
 	 
+	 /*
+	  * Method used to estimate the time to wait until your ticket will be called
+	  */
 	 public static float estimateWaitingTime(char ticketType) throws LabelException {
 		 float waitingTime = 0;
 		 if(ticketType == 'A') {
@@ -95,6 +98,10 @@ public class Functions {
 		return waitingTime;
 	 }
 	 
+	 /*
+	  * Method used to remove called ticket from the proper queue 
+	  * and to print it into the Counter interface
+	  */
 	 public static Ticket removeTicket(JTextField ticketCnt12, char type)
 			 throws LabelException, TicketException {
 		Ticket t = new Ticket();
@@ -125,11 +132,15 @@ public class Functions {
 		return t;
 	}
 	 
+	 /*
+	  * Method used when the Counter button is pressed 
+	  * to call the next ticket and display it into the DisplayUI window
+	  */
 	 public static Ticket displayTicket(JTextField tc, char type) throws LabelException, TicketException {
 		 
 		 Ticket t = null ;
 		  
-		 //Account counter
+		 //Account Counter
 		 if (type == 'A') {
 			 
 			 if(Main.Account.getTicketList().isEmpty() == false) {
@@ -141,7 +152,7 @@ public class Functions {
 			 
 		 }
 		 //Package Counter
-		 else if(type == 'P') {
+		 else if (type == 'P') {
 
 			 if(Main.Package.getTicketList().isEmpty() == false) {
 				 t = Main.Package.getTicketList().get(0);
@@ -152,15 +163,14 @@ public class Functions {
 			 
 		 }
 		 //Counter that manages both queues
-		 else if (type == 'B') {
-			 
+		 else if (type == 'B') {			 
 			
 			int sizeAccount=Main.Account.getTicketList().size();
 			int sizePackage=Main.Package.getTicketList().size();
 			
-			if(sizeAccount> sizePackage) {  
+			if (sizeAccount > sizePackage) {  
 				
-				if(Main.Account.getTicketList().isEmpty() == false) {
+				if (Main.Account.getTicketList().isEmpty() == false) {
 				     t = Main.Account.getTicketList().get(0);
 					 DisplayUI.txtrClickOnA1.setText(null);   
 					 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "A" + Integer.toString(t.getNumber())); 
@@ -168,7 +178,7 @@ public class Functions {
 			   Functions.removeTicket(tc,'A');
 				
 			}
-			else if(sizePackage>sizeAccount ) {
+			else if (sizePackage > sizeAccount) {
 				
 				if(Main.Package.getTicketList().isEmpty() == false) {
 				     t = Main.Package.getTicketList().get(0);
@@ -179,19 +189,32 @@ public class Functions {
 			}
 			else {
 				
-				if(Main.Package.getTicketList().isEmpty() == false) {
-					 t = Main.Package.getTicketList().get(0);
-					 DisplayUI.txtrClickOnA1.setText(null);   
-					 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "P" + Integer.toString(t.getNumber())); 
-					  }
-			   Functions.removeTicket(tc,'P');
+				Integer serviceAccount = Main.Account.getServiceTime();
+				Integer servicePackage = Main.Package.getServiceTime();
+				
+				if (serviceAccount > servicePackage) {
+					if (Main.Package.getTicketList().isEmpty() == false) {
+						 t = Main.Package.getTicketList().get(0);
+						 DisplayUI.txtrClickOnA1.setText(null);   
+						 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "P" + Integer.toString(t.getNumber())); 
+						  }
+				   Functions.removeTicket(tc,'P');
+				}
+				else {
+					if (Main.Account.getTicketList().isEmpty() == false) {
+						 t = Main.Account.getTicketList().get(0);
+						 DisplayUI.txtrClickOnA1.setText(null);   
+						 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "A" + Integer.toString(t.getNumber())); 
+						  }
+				   Functions.removeTicket(tc,'A');
+				}			
+				
 			}
 			 
 		 }
 		 else 
-				throw new LabelException();
+			throw new LabelException();
 		 
 		 return t;
-	 }
-	 
+	 }	 
 }

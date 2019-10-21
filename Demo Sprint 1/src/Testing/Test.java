@@ -2,7 +2,6 @@ package Testing;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JTextField;
@@ -241,11 +240,5 @@ class Test {
 		//will generate a LabelException
 		assertThrows(LabelException.class, () -> Functions.displayTicket(txtField, 'G'));
 		assertThrows(LabelException.class, () -> Functions.displayTicket(txtField, '2'));
-		
-		
-		
-	}
-	
-	
-	
+	}	
 }

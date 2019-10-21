@@ -7,8 +7,12 @@ public class Ticket {
 	private int number;
 	private Date d;
 	
+	// Constructor
+	
 	public Ticket() { }
 
+	// Getters and Setters
+	
 	public char getLabel() {
 		return label;
 	}

@@ -8,6 +8,8 @@ public class Request {
 	Integer counterNumber;
 	Integer totalServed;
 
+	// Constructor
+	
 	public Request() { 
 		this.ticketList = new ArrayList<Ticket>();
 		this.totalServed = 1;
@@ -20,20 +22,14 @@ public class Request {
 		this.totalServed = 1;
 	}
 	
+	//Getters and Setters
+	
 	public ArrayList<Ticket> getTicketList() {
 		return ticketList;
 	}
 
 	public void setTicketList(ArrayList<Ticket> ticketList) {
 		this.ticketList = ticketList;
-	}
-	
-	public void resetTicketList() {
-		this.ticketList = new ArrayList<Ticket>();
-	}
-	
-	public void resetTotalServed() {
-		this.totalServed = 1;
 	}
 
 	public Integer getServiceTime() {
@@ -58,6 +54,16 @@ public class Request {
 
 	public void setTotalServed(Integer totalServed) {
 		this.totalServed = totalServed;
+	}
+	
+	// Reset methods
+	
+	public void resetTicketList() {
+		this.ticketList = new ArrayList<Ticket>();
+	}
+	
+	public void resetTotalServed() {
+		this.totalServed = 1;
 	}
 	
 }

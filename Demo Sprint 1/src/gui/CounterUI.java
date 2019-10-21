@@ -18,9 +18,6 @@ import Functions.Functions;
 
 public class CounterUI extends JDialog {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JLabel cnt1;
 	private JLabel cnt2;
@@ -28,8 +25,6 @@ public class CounterUI extends JDialog {
 	private JTextField ticketCnt1;
 	private JTextField ticketCnt2;
 	private JTextField ticketCnt3;
-	public int sizeAccount=0;
-	public int sizePackage=0;
 	
 	/**
 		 * Create the dialog.
@@ -64,9 +59,7 @@ public class CounterUI extends JDialog {
 		
 		ticketCnt3 = new JTextField();
 		ticketCnt3.setEditable(false);
-		ticketCnt3.setColumns(10);
-		
-		
+		ticketCnt3.setColumns(10);		
 		
 		//Counter 1 button
 		JButton nextTick1 = new JButton("Next");
@@ -112,10 +105,7 @@ public class CounterUI extends JDialog {
 		nextTick3.addMouseListener(new MouseAdapter() {
 			   @Override
 			   public void mouseClicked(MouseEvent e) { 
-				 sizeAccount=Main.Account.getTicketList().size();
-				 sizePackage=Main.Package.getTicketList().size();
-				
-				
+				 				
 				   try {
 					   Functions.displayTicket(ticketCnt3, 'B');
 					} catch (LabelException e1) {
@@ -126,8 +116,7 @@ public class CounterUI extends JDialog {
 						ticketCnt3.setText("No Customer");
 						// TODO Auto-generated catch block
 						//e1.printStackTrace();
-					}   
-
+					}
 				
 			   }
 			  });	
@@ -191,7 +180,6 @@ public class CounterUI extends JDialog {
 						.addComponent(nextTick2))
 					.addGap(178))
 		);
-		getContentPane().setLayout(groupLayout);
-		
+		getContentPane().setLayout(groupLayout);		
 	}
 }
