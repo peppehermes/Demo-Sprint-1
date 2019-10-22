@@ -136,7 +136,7 @@ public class Functions {
 	  * Method used when the Counter button is pressed 
 	  * to call the next ticket and display it into the DisplayUI window
 	  */
-	 public static Ticket displayTicket(JTextField tc, char type) throws LabelException, TicketException {
+	 public static Ticket displayTicket(JTextField tc, char type, int num) throws LabelException, TicketException {
 		 
 		 Ticket t = null ;
 		  
@@ -146,7 +146,8 @@ public class Functions {
 			 if(Main.Account.getTicketList().isEmpty() == false) {
 				 t = Main.Account.getTicketList().get(0);
 				 DisplayUI.txtrClickOnA1.setText(null);   
-				 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "A" + Integer.toString(t.getNumber())); 
+				 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "A" + Integer.toString(t.getNumber()) +
+						 " at Counter " + Integer.toString(num)); 
 				  }
 				 Functions.removeTicket(tc,'A');
 			 
@@ -156,9 +157,10 @@ public class Functions {
 
 			 if(Main.Package.getTicketList().isEmpty() == false) {
 				 t = Main.Package.getTicketList().get(0);
-				 DisplayUI.txtrClickOnA1.setText(null);   
-				 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "P" + Integer.toString(t.getNumber())); 
-				  }
+				 DisplayUI.txtrClickOnA1.setText(null);
+				 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "P" + Integer.toString(t.getNumber()) +
+						 " at Counter " + Integer.toString(num));
+			 }
 			 Functions.removeTicket(tc,'P');
 			 
 		 }
@@ -173,8 +175,9 @@ public class Functions {
 				if (Main.Account.getTicketList().isEmpty() == false) {
 				     t = Main.Account.getTicketList().get(0);
 					 DisplayUI.txtrClickOnA1.setText(null);   
-					 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "A" + Integer.toString(t.getNumber())); 
-					  }
+					 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "A" + Integer.toString(t.getNumber()) +
+							 " at Counter " + Integer.toString(num));
+				}
 			   Functions.removeTicket(tc,'A');
 				
 			}
@@ -183,8 +186,9 @@ public class Functions {
 				if(Main.Package.getTicketList().isEmpty() == false) {
 				     t = Main.Package.getTicketList().get(0);
 					 DisplayUI.txtrClickOnA1.setText(null);   
-					 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "P" + Integer.toString(t.getNumber())); 
-					  }
+					 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "P" + Integer.toString(t.getNumber()) +
+							 " at Counter " + Integer.toString(num));					 
+				}
 				 Functions.removeTicket(tc,'P');
 			}
 			else {
@@ -196,16 +200,18 @@ public class Functions {
 					if (Main.Package.getTicketList().isEmpty() == false) {
 						 t = Main.Package.getTicketList().get(0);
 						 DisplayUI.txtrClickOnA1.setText(null);   
-						 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "P" + Integer.toString(t.getNumber())); 
-						  }
+						 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "P" + Integer.toString(t.getNumber()) +
+								 " at Counter " + Integer.toString(num));
+						 }
 				   Functions.removeTicket(tc,'P');
 				}
 				else {
 					if (Main.Account.getTicketList().isEmpty() == false) {
 						 t = Main.Account.getTicketList().get(0);
 						 DisplayUI.txtrClickOnA1.setText(null);   
-						 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "A" + Integer.toString(t.getNumber())); 
-						  }
+						 DisplayUI.txtrClickOnA1.setText("Calling Ticket! \n\n" + "A" + Integer.toString(t.getNumber()) +
+								 " at Counter " + Integer.toString(num));
+						 }
 				   Functions.removeTicket(tc,'A');
 				}			
 				

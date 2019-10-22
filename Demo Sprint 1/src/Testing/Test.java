@@ -212,14 +212,14 @@ class Test {
 		//has a longer estimated waiting time
 		//The next Ticket called should be
 		//from the Account list
-		tChosen = Functions.displayTicket(txtField, 'B');
+		tChosen = Functions.displayTicket(txtField, 'B', 3);
 		
 		assertEquals(tP.getLabel(), tChosen.getLabel());
 		assertEquals(tP.getNumber(), tChosen.getNumber());
 		
 		//Since only the Account list is not empty
 		//the next ticket called will be from that list
-		tChosen = Functions.displayTicket(txtField, 'B');
+		tChosen = Functions.displayTicket(txtField, 'B', 3);
 		
 		assertEquals(tA.getLabel(), tChosen.getLabel());
 		assertEquals(tA.getNumber(), tChosen.getNumber());
@@ -228,17 +228,17 @@ class Test {
 		tA = Functions.addTicketToList('A');
 		tP = Functions.addTicketToList('P');
 		
-		tChosen = Functions.displayTicket(txtField, 'A');
+		tChosen = Functions.displayTicket(txtField, 'A', 1);
 		assertEquals(tA.getLabel(), tChosen.getLabel());
 		assertEquals(tA.getNumber(), tChosen.getNumber());
 		
-		tChosen = Functions.displayTicket(txtField, 'P');
+		tChosen = Functions.displayTicket(txtField, 'P', 2);
 		assertEquals(tP.getLabel(), tChosen.getLabel());
 		assertEquals(tP.getNumber(), tChosen.getNumber());
 		
 		//Giving an invalid label as Input
 		//will generate a LabelException
-		assertThrows(LabelException.class, () -> Functions.displayTicket(txtField, 'G'));
-		assertThrows(LabelException.class, () -> Functions.displayTicket(txtField, '2'));
+		assertThrows(LabelException.class, () -> Functions.displayTicket(txtField, 'G', 1));
+		assertThrows(LabelException.class, () -> Functions.displayTicket(txtField, '2', 1));
 	}	
 }

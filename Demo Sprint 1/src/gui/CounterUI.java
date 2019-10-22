@@ -68,7 +68,7 @@ public class CounterUI extends JDialog {
 			   public void mouseClicked(MouseEvent e) {    
 				   
 				   try {					 
-					   Functions.displayTicket(ticketCnt1,'A');
+					   Functions.displayTicket(ticketCnt1,'A', 1);
 					} catch (LabelException e1) {						
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
@@ -87,7 +87,7 @@ public class CounterUI extends JDialog {
 			   public void mouseClicked(MouseEvent e) {    
 				   
 				   try {			 
-					   Functions.displayTicket(ticketCnt2,'P');
+					   Functions.displayTicket(ticketCnt2,'P', 2);
 					} catch (LabelException e1) {
 						
 						// TODO Auto-generated catch block
@@ -107,7 +107,7 @@ public class CounterUI extends JDialog {
 			   public void mouseClicked(MouseEvent e) { 
 				 				
 				   try {
-					   Functions.displayTicket(ticketCnt3, 'B');
+					   Functions.displayTicket(ticketCnt3, 'B', 3);
 					} catch (LabelException e1) {
 						
 						// TODO Auto-generated catch block
