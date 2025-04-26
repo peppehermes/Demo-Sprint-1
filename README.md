@@ -1,8 +1,6 @@
-# Group I
+## Demo Sprint 1
 
-## Demo-Sprint-1
-
-First sprint demo for Software Engineering 2.
+First sprint demo for Software Engineering II.
 
 ### Definition of Done
 
@@ -12,6 +10,9 @@ First sprint demo for Software Engineering 2.
 - Code review
 
 ### System configuration
+
+Implement a postal office management tool to handle requests from customers.
+Counters are the available workers at the postal office.
 
 Default: 3 counters
 
