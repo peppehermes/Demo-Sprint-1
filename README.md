@@ -1,6 +1,6 @@
-## Demo Sprint 1
+## Postal Office Queue Manager
 
-First sprint demo for Software Engineering II.
+Demo project for Software Engineering II.
 
 ### Definition of Done
 
